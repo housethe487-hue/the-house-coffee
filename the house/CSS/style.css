@@ -235,10 +235,21 @@ a {
   line-height: 1.9;
 }
 
-/* Video Section */
+/* Video Section - Dark */
 
 .video-section {
-  background: var(--bg);
+  background:
+    radial-gradient(circle at top left, rgba(232, 101, 50, 0.16), transparent 35%),
+    linear-gradient(135deg, #111111, #050505);
+  color: white;
+}
+
+.video-section h2 {
+  color: var(--primary);
+}
+
+.video-section p {
+  color: var(--white-muted);
 }
 
 .intro-video {
@@ -247,20 +258,38 @@ a {
   max-width: 950px;
   margin: 45px auto 0;
   border-radius: 24px;
-  box-shadow: var(--shadow);
+  box-shadow: var(--dark-shadow);
   background: #000;
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-/* About */
+
+/* About Section - Dark */
 
 .about {
-  background: white;
+  background:
+    radial-gradient(circle at bottom right, rgba(232, 101, 50, 0.14), transparent 35%),
+    linear-gradient(135deg, #161616, #070707);
+  color: white;
 }
 
-/* Menu Section */
+.about h2 {
+  color: var(--primary);
+}
+
+.about p {
+  color: var(--white-muted);
+  max-width: 850px;
+  line-height: 2;
+}
+
+/* Menu Section - Dark Mode */
 
 .menu-section {
-  background: var(--soft-bg);
+  background:
+    radial-gradient(circle at top left, rgba(232, 101, 50, 0.18), transparent 35%),
+    linear-gradient(135deg, #111111, #050505);
+  color: white;
 }
 
 .section-title {
@@ -277,13 +306,13 @@ a {
 }
 
 .section-title h2 {
-  color: var(--dark);
+  color: white;
   font-size: clamp(2rem, 4.5vw, 3rem);
   margin-bottom: 10px;
 }
 
 .section-title p {
-  color: var(--text-muted);
+  color: var(--white-muted);
 }
 
 /* Menu Cards */
@@ -297,17 +326,20 @@ a {
 }
 
 .menu-card {
-  background: white;
+  background: linear-gradient(145deg, #1c1c1c, #101010);
   padding: 28px;
   border-radius: var(--radius);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--dark-shadow);
   border-top: 5px solid var(--primary);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   transition: 0.35s ease;
 }
 
 .menu-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 22px 45px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 24px 50px rgba(0, 0, 0, 0.45);
 }
 
 .menu-card h3 {
@@ -323,7 +355,7 @@ a {
   align-items: center;
   gap: 16px;
   padding: 12px 0;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .menu-item:last-child {
@@ -331,14 +363,14 @@ a {
 }
 
 .menu-item span:first-child {
-  font-weight: 700;
-  color: var(--dark);
+  font-weight: 900;
+  color: var(--primary);
+  white-space: nowrap;
 }
 
 .menu-item span:last-child {
-  color: var(--primary);
-  font-weight: 900;
-  white-space: nowrap;
+  color: white;
+  font-weight: 800;
 }
 
 /* Contact Section */
@@ -639,4 +671,111 @@ footer p {
   .contact-map iframe {
     min-height: 300px;
   }
+}
+
+/* ===============================
+   Unified Dark Website Theme
+   يخلي كل الأقسام شابكة مع بعض
+================================ */
+
+body {
+  background:
+    radial-gradient(circle at top left, rgba(232, 101, 50, 0.16), transparent 32%),
+    radial-gradient(circle at center right, rgba(232, 101, 50, 0.12), transparent 30%),
+    linear-gradient(135deg, #111111 0%, #050505 55%, #190a05 100%);
+  color: white;
+}
+
+/* خلي كل السيكشنات نفس الخلفية */
+.hero,
+.video-section,
+.about,
+.menu-section,
+.contact {
+  background: transparent !important;
+  color: white;
+}
+
+/* توحيد المسافات بين الأقسام */
+.video-section,
+.about,
+.menu-section,
+.contact {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+
+/* العناوين */
+.section h2,
+.video-section h2,
+.about h2,
+.menu-section h2,
+.contact h2,
+.section-title h2 {
+  color: white !important;
+}
+
+.section-title span,
+.video-section h2,
+.about h2,
+.menu-card h3,
+.contact-tag {
+  color: var(--primary) !important;
+}
+
+/* النصوص */
+.section p,
+.video-section p,
+.about p,
+.section-title p,
+.contact-info p {
+  color: var(--white-muted) !important;
+}
+
+/* كروت المنيو */
+.menu-card {
+  background: linear-gradient(145deg, #1b1b1b, #0d0d0d) !important;
+  color: white;
+  border-top: 4px solid var(--primary);
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+}
+
+.menu-item {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-item span:first-child {
+  color: var(--primary) !important;
+  font-weight: 900;
+}
+
+.menu-item span:last-child {
+  color: white !important;
+  font-weight: 800;
+}
+
+/* الفيديو */
+.intro-video {
+  background: #1f1f1f !important;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: var(--dark-shadow);
+}
+
+/* من نحن */
+.about {
+  text-align: center;
+}
+
+/* التواصل */
+.contact-info {
+  background: linear-gradient(145deg, #1b1b1b, #0d0d0d) !important;
+}
+
+/* الفوتر */
+footer {
+  background: #050505 !important;
+  color: white;
 }
