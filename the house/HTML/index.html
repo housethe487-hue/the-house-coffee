@@ -1,390 +1,287 @@
 <!doctype html>
-<html lang="en" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The House Coffee</title>
-    <link rel="stylesheet" href="../CSS/style.css" />
-  </head>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0908" />
+  <meta name="description" content="The House Coffee — specialty coffee, signature drinks and a warm late-night atmosphere in Shafa Badran, Amman." />
+  <meta property="og:title" content="The House Coffee | Amman" />
+  <meta property="og:description" content="A specialty coffee experience built around taste, atmosphere and detail." />
+  <meta property="og:type" content="restaurant" />
+  <title>The House Coffee — Amman</title>
 
-  <body>
-    <!-- Header -->
-    <header class="header">
-      <nav class="navbar">
-        <div class="brand">
-          <img
-            src="../assets/logo.jpg"
-            alt="The House Coffee Logo"
-            class="logo"
-          />
-          <span class="brand-name">The House Coffee</span>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CafeOrCoffeeShop",
+    "name": "The House Coffee",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Refaat Shamout St., Shafa Badran",
+      "addressLocality": "Amman",
+      "addressCountry": "JO"
+    },
+    "openingHours": "Mo-Su 08:00-00:00",
+    "sameAs": ["https://www.instagram.com/house.amman/"]
+  }
+  </script>
+</head>
+<body>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="cursor-glow" aria-hidden="true"></div>
+  <div class="scroll-progress" aria-hidden="true"><span></span></div>
+
+  <div class="preloader" aria-hidden="true">
+    <div class="preloader-mark">H</div>
+    <p>BREWING THE EXPERIENCE</p>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <a class="brand" href="#home" aria-label="The House Coffee home">
+      <img src="assets/logo.jpg" alt="The House Coffee logo" width="52" height="52" />
+      <span>
+        <strong>THE HOUSE</strong>
+        <small>COFFEE · AMMAN</small>
+      </span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+
+    <nav class="site-nav" aria-label="Primary navigation">
+      <a href="#story" data-en="Our story" data-ar="قصتنا">Our story</a>
+      <a href="#experience" data-en="Experience" data-ar="الأجواء">Experience</a>
+      <a href="#menu" data-en="Menu" data-ar="المنيو">Menu</a>
+      <a href="#visit" data-en="Visit us" data-ar="زورونا">Visit us</a>
+    </nav>
+
+    <div class="header-actions">
+      <button class="lang-toggle" type="button" aria-label="Switch language">AR</button>
+      <a class="nav-cta" href="#menu" data-en="Explore menu" data-ar="استكشف المنيو">Explore menu</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-ambient hero-ambient-one"></div>
+      <div class="hero-ambient hero-ambient-two"></div>
+
+      <div class="hero-copy reveal">
+        <p class="eyebrow" data-en="SPECIALTY COFFEE · SHAFA BADRAN" data-ar="قهوة مختصة · شفا بدران">SPECIALTY COFFEE · SHAFA BADRAN</p>
+        <h1>
+          <span data-en="Coffee made" data-ar="قهوة مصنوعة">Coffee made</span>
+          <em data-en="to feel like home." data-ar="لتشعرك أنك في بيتك.">to feel like home.</em>
+        </h1>
+        <p class="hero-lead" data-en="Signature drinks, honest flavors and a warm atmosphere made for slow mornings, late conversations and everything in between." data-ar="مشروبات مميزة، نكهات صادقة وأجواء دافئة لصباح هادئ، وسهرات طويلة، وكل اللحظات بينهما.">
+          Signature drinks, honest flavors and a warm atmosphere made for slow mornings, late conversations and everything in between.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#menu">
+            <span data-en="Discover the menu" data-ar="اكتشف المنيو">Discover the menu</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="button button-ghost" href="#visit" data-en="Get directions" data-ar="اعرف الطريق">Get directions</a>
+        </div>
+        <div class="hero-meta">
+          <span><b>8:00</b> AM</span>
+          <i></i>
+          <span><b>12:00</b> AM</span>
+          <i></i>
+          <span>Open daily</span>
+        </div>
+      </div>
+
+      <div class="hero-art reveal" aria-label="Abstract coffee cup illustration">
+        <div class="orbit orbit-one"><span>AMMAN</span></div>
+        <div class="orbit orbit-two"><span>HOUSE BLEND</span></div>
+        <div class="cup-stage">
+          <svg class="cup" viewBox="0 0 520 520" role="img" aria-label="A stylized cup of coffee">
+            <defs>
+              <radialGradient id="coffee" cx="45%" cy="40%" r="65%">
+                <stop offset="0" stop-color="#9a4d22"/>
+                <stop offset=".55" stop-color="#4c2112"/>
+                <stop offset="1" stop-color="#1b0a05"/>
+              </radialGradient>
+              <linearGradient id="ceramic" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#fff9ee"/>
+                <stop offset=".52" stop-color="#e7d9c7"/>
+                <stop offset="1" stop-color="#aa9780"/>
+              </linearGradient>
+              <filter id="shadow"><feDropShadow dx="0" dy="28" stdDeviation="25" flood-opacity=".42"/></filter>
+            </defs>
+            <ellipse cx="260" cy="420" rx="170" ry="32" fill="#000" opacity=".26"/>
+            <g filter="url(#shadow)" transform="rotate(-8 260 260)">
+              <path d="M375 205c72-16 111 19 106 74-4 49-48 83-111 75" fill="none" stroke="url(#ceramic)" stroke-width="42" stroke-linecap="round"/>
+              <path d="M86 174h310l-20 168c-6 54-51 95-105 95h-62c-54 0-99-41-105-95z" fill="url(#ceramic)"/>
+              <ellipse cx="241" cy="178" rx="157" ry="55" fill="#d7c7b4"/>
+              <ellipse cx="241" cy="174" rx="139" ry="42" fill="url(#coffee)"/>
+              <path d="M194 167c27-35 63-29 88-7 22 19 43 18 59 5-10 34-41 54-78 50-34-4-58-25-69-48z" fill="none" stroke="#f4e5ce" stroke-width="8" stroke-linecap="round" opacity=".92"/>
+              <path d="M211 168c18-18 38-15 54-2 13 11 25 12 37 6-8 20-27 31-49 28-20-2-34-14-42-32z" fill="none" stroke="#f4e5ce" stroke-width="6" stroke-linecap="round" opacity=".9"/>
+              <path d="M129 355c82 33 166 35 247 0" fill="none" stroke="#fff" stroke-width="5" opacity=".34"/>
+            </g>
+          </svg>
+          <div class="steam steam-one"></div>
+          <div class="steam steam-two"></div>
+          <div class="steam steam-three"></div>
+        </div>
+        <div class="rating-pill"><span>★</span><b>4.8</b><small>local favorite</small></div>
+      </div>
+
+      <a class="scroll-cue" href="#story" aria-label="Scroll to our story"><span></span></a>
+    </section>
+
+    <section class="brand-strip" aria-label="Brand values">
+      <div class="marquee">
+        <span>HOUSE SIGNATURES</span><i>✦</i><span>MADE IN AMMAN</span><i>✦</i><span>GOOD COFFEE · GOOD PEOPLE</span><i>✦</i><span>OPEN LATE</span><i>✦</i>
+        <span>HOUSE SIGNATURES</span><i>✦</i><span>MADE IN AMMAN</span><i>✦</i><span>GOOD COFFEE · GOOD PEOPLE</span><i>✦</i><span>OPEN LATE</span><i>✦</i>
+      </div>
+    </section>
+
+    <section class="story section" id="story">
+      <div class="section-heading reveal">
+        <p class="eyebrow" data-en="MORE THAN A CUP" data-ar="أكثر من مجرد كوب">MORE THAN A CUP</p>
+        <h2 data-en="Built around the moments that happen between sips." data-ar="مكان صُمم حول اللحظات التي تحدث بين رشفة وأخرى.">Built around the moments that happen between sips.</h2>
+      </div>
+
+      <div class="story-grid">
+        <div class="story-card story-card-main reveal">
+          <div class="card-number">01</div>
+          <div>
+            <h3 data-en="The craft" data-ar="الحِرفة">The craft</h3>
+            <p data-en="From espresso classics to playful house signatures, every drink is designed to feel familiar, then surprise you with one memorable detail." data-ar="من كلاسيكيات الإسبريسو إلى مشروباتنا المميزة، صُمم كل كوب ليبدو مألوفاً ثم يفاجئك بتفصيل لا يُنسى.">From espresso classics to playful house signatures, every drink is designed to feel familiar, then surprise you with one memorable detail.</p>
+          </div>
         </div>
 
+        <div class="story-quote reveal">
+          <span>“</span>
+          <blockquote data-en="A neighborhood coffee house with the ambition of a destination." data-ar="مقهى الحي بروح مكان يستحق أن تقصده.">A neighborhood coffee house with the ambition of a destination.</blockquote>
+          <small>THE HOUSE PHILOSOPHY</small>
+        </div>
+
+        <div class="story-card reveal">
+          <div class="card-number">02</div>
+          <div>
+            <h3 data-en="The atmosphere" data-ar="الأجواء">The atmosphere</h3>
+            <p data-en="Warm light, calm corners and a soundtrack that lets conversations breathe—from the first morning order to the last cup at midnight." data-ar="إضاءة دافئة، زوايا هادئة وموسيقى تترك مساحة للحديث، من أول طلب صباحاً حتى آخر كوب عند منتصف الليل.">Warm light, calm corners and a soundtrack that lets conversations breathe—from the first morning order to the last cup at midnight.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="experience section" id="experience">
+      <div class="experience-copy reveal">
+        <p class="eyebrow" data-en="THE HOUSE EXPERIENCE" data-ar="تجربة ذا هاوس">THE HOUSE EXPERIENCE</p>
+        <h2 data-en="Come for the coffee. Stay for the feeling." data-ar="تعال من أجل القهوة، وابقَ من أجل الشعور.">Come for the coffee. Stay for the feeling.</h2>
+        <p data-en="Watch a glimpse of the bar, the details and the energy that make every visit feel different." data-ar="شاهد لمحة من البار والتفاصيل والطاقة التي تجعل كل زيارة مختلفة.">Watch a glimpse of the bar, the details and the energy that make every visit feel different.</p>
         <ul>
-          <li><a href="#home">home</a></li>
-          <li><a href="#about">?who are we</a></li>
-          <li><a href="#video">Watch the atmosphere</a></li>
-          <li><a href="#menu">menu</a></li>
-          <li><a href="#contact">Contact us</a></li>
+          <li><span>01</span><b data-en="Handcrafted drinks" data-ar="مشروبات محضّرة بعناية">Handcrafted drinks</b></li>
+          <li><span>02</span><b data-en="Late-night atmosphere" data-ar="أجواء ليلية دافئة">Late-night atmosphere</b></li>
+          <li><span>03</span><b data-en="A place to connect" data-ar="مكان للقاء والتواصل">A place to connect</b></li>
         </ul>
-      </nav>
-    </header>
+      </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-      <div class="hero-text">
-        <h1>The House Coffee</h1>
-
-        <p>
-          Enjoy a special coffee experience with premium taste, a relaxing vibe, and fast service
-         . in the heart of Amman.
-        </p>
-        
-
-        <div class="buttons">
-          <a href="#menu" class="btn primary">View Our Menu</a>
-          <a href="#video" class="btn secondary">See the Atmosphere</a>
-        </div>
+      <div class="video-shell reveal">
+        <video class="experience-video" muted loop playsinline preload="metadata" poster="assets/logo.jpg">
+          <source src="assets/intro.mp4" type="video/mp4" />
+        </video>
+        <button class="video-toggle" type="button" aria-label="Play atmosphere video">
+          <span class="play-icon"></span>
+          <small data-en="PLAY THE FILM" data-ar="شغّل الفيديو">PLAY THE FILM</small>
+        </button>
+        <div class="video-caption"><span>THE HOUSE</span><span>AMMAN · 2026</span></div>
       </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="section about">
-      <h2>?who are we</h2>
-
-      <p>
-      The House Coffee is a place in Amman offering a variety of hot and cold coffee drinks with rich flavors. We are 
-      committed to using high-quality ingredients and providing an exceptional customer experience. We welcome 
-      you to a calm and comfortable atmosphere, where you can enjoy a uniquely crafted cup of coffee and  
-      .outstanding service with every visit
-      </p>
-    </section>
-
-    <!-- Video Section -->
-    <section id="video" class="section video-section">
-      <div class="section-title">
-        <span>THE HOUSE EXPERIENCE</span>
-        <h2>A sight of our vibes</h2>
-        <p>
-       .Experience the vibe of The House Coffee up close — from the cozy details of the place to the coffee-making moments and the customers’ experience
-        </p>
+    <section class="menu-section section" id="menu">
+      <div class="menu-intro reveal">
+        <div>
+          <p class="eyebrow" data-en="OUR MENU" data-ar="قائمتنا">OUR MENU</p>
+          <h2 data-en="Choose your mood." data-ar="اختر مزاجك.">Choose your mood.</h2>
+        </div>
+        <p data-en="Classics when you need comfort. House signatures when you want something you will remember." data-ar="كلاسيكيات عندما تريد طعماً مألوفاً، ومشروبات مميزة عندما تريد شيئاً لا تنساه.">Classics when you need comfort. House signatures when you want something you will remember.</p>
       </div>
 
-      <video controls playsinline preload="metadata" class="intro-video">
-        <source src="../assets/intro.mp4" type="video/mp4" />
-.Your browser does not support video playback
-      </video>
-    </section>
-
-    <!-- Menu Section -->
-    <section id="menu" class="section menu-section">
-      <div class="section-title">
-        <span>OUR MENU</span>
-        <h2>The House Signature Menu</h2>
-        <p>.Discover our handcrafted drinks</p>
+      <div class="menu-tabs reveal" role="tablist" aria-label="Menu categories">
+        <button class="menu-tab active" data-category="all" role="tab" aria-selected="true" data-en="All" data-ar="الكل">All</button>
+        <button class="menu-tab" data-category="coffee" role="tab" aria-selected="false" data-en="Coffee" data-ar="قهوة">Coffee</button>
+        <button class="menu-tab" data-category="signature" role="tab" aria-selected="false" data-en="Signatures" data-ar="المميزة">Signatures</button>
+        <button class="menu-tab" data-category="matcha" role="tab" aria-selected="false" data-en="Matcha" data-ar="ماتشا">Matcha</button>
+        <button class="menu-tab" data-category="shake" role="tab" aria-selected="false" data-en="Shakes" data-ar="ميلك شيك">Shakes</button>
       </div>
 
-      <div class="menu-grid">
-        <!-- Coffee Classics -->
-        <div class="menu-card">
-          <h3>☕ Coffee Classics</h3>
+      <div class="menu-list" id="menu-list" aria-live="polite"></div>
 
-          <div class="menu-item">
-            <span>Espresso</span>
-            <span>1.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Americano</span>
-            <span>2.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Black</span>
-            <span>2.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>V60</span>
-            <span>3.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Cortado</span>
-            <span>2.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Flat White</span>
-            <span>2.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Cold Brew</span>
-            <span>3.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Latte</span>
-            <span>3.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Cappuccino</span>
-            <span>3.00 JD</span>
-          </div>
-        </div>
-
-        <!-- Latte Signatures -->
-        <div class="menu-card">
-          <h3>🥛 Latte Signatures</h3>
-
-          <div class="menu-item">
-            <span>Spanish Latte</span>
-            <span>3.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Berries Latte</span>
-            <span>3.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Sal-Scot Latte</span>
-            <span>3.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Baked Latte</span>
-            <span>3.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Arabian Latte</span>
-            <span>4.00 JD</span>
-          </div>
-        </div>
-
-        <!-- Frappe -->
-        <div class="menu-card">
-          <h3>🥤 FRAAAAAAAAPE</h3>
-
-          <div class="menu-item">
-            <span>Arabian Night</span>
-            <span>3.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Toxic</span>
-            <span>3.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Choco Blossom</span>
-            <span>3.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Silk Road</span>
-            <span>3.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Nutz</span>
-            <span>4.00 JD</span>
-          </div>
-        </div>
-
-        <!-- Matcha -->
-        <div class="menu-card">
-          <h3>🍵 MAAAAAATCHA</h3>
-
-          <div class="menu-item">
-            <span>Mad</span>
-            <span>4.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Glad</span>
-            <span>4.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Meeeh</span>
-            <span>4.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Cozy</span>
-            <span>4.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Frozy</span>
-            <span>4.00 JD</span>
-          </div>
-        </div>
-
-        <!-- Milkshake -->
-        <div class="menu-card">
-          <h3>🥛 MILKSHAAAAAAKE</h3>
-
-          <div class="menu-item">
-            <span>Wall-Nuts</span>
-            <span>5.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Zesty</span>
-            <span>5.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Mera-Mieh</span>
-            <span>5.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Player</span>
-            <span>5.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Surprise Me</span>
-            <span>5.00 JD</span>
-          </div>
-        </div>
-
-        <!-- Extras -->
-        <div class="menu-card">
-          <h3>➕ EXTRAAAAAAAAS</h3>
-
-          <div class="menu-item">
-            <span>Extra Shot</span>
-            <span>0.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Syrup</span>
-            <span>0.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Whipped Cream</span>
-            <span>0.50 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Still Water</span>
-            <span>0.75 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Sparkling Water</span>
-            <span>1.00 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Coconut Milk</span>
-            <span>0.75 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Almond Milk</span>
-            <span>0.75 JD</span>
-          </div>
-
-          <div class="menu-item">
-            <span>Lactose Free</span>
-            <span>0.50 JD</span>
-          </div>
-        </div>
+      <div class="menu-note reveal">
+        <span>+</span>
+        <p data-en="Plant milk, extra shots and flavor additions are available. Ask the barista for today’s recommendation." data-ar="يتوفر حليب نباتي، شوتات إضافية ونكهات متنوعة. اسأل الباريستا عن اقتراح اليوم.">Plant milk, extra shots and flavor additions are available. Ask the barista for today’s recommendation.</p>
       </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="section contact">
-      <div class="contact-container">
-        <div class="contact-info">
-          <span class="contact-tag">📍 VISIT US</span>
+    <section class="signature-banner">
+      <div class="signature-mark">H</div>
+      <div class="reveal">
+        <p data-en="HOUSE RECOMMENDATION" data-ar="ترشيح ذا هاوس">HOUSE RECOMMENDATION</p>
+        <h2>Arabian Latte</h2>
+        <span data-en="Rich · aromatic · unmistakably ours" data-ar="غني · عطري · بطابعنا الخاص">Rich · aromatic · unmistakably ours</span>
+      </div>
+      <strong>4.00 <small>JD</small></strong>
+    </section>
 
+    <section class="visit section" id="visit">
+      <div class="visit-panel reveal">
+        <p class="eyebrow" data-en="VISIT THE HOUSE" data-ar="زوروا ذا هاوس">VISIT THE HOUSE</p>
+        <h2 data-en="Your next cup is closer than you think." data-ar="كوبك القادم أقرب مما تتخيل.">Your next cup is closer than you think.</h2>
 
-          
-
-          <p>
-           .!🌿Come over We’ve got coffee
-            <br />
-            Step into The House Coffee and enjoy specialty coffee in a peaceful, cozy sett
-            .ing in the heart of Amman         
-          </p>
-
-          <div class="contact-details">
-            <div>
-              <strong>Instagram</strong>
-
-              <a
-                href="https://www.instagram.com/house.amman/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="instagram-link"
-              >
-                <img
-                  src="../assets/instagram.jpg"
-                  alt="Instagram Logo"
-                  class="instagram-icon"
-                />
-                <span>@house.amman</span>
-              </a>
-            </div>
-
-            <div>
-              <strong>Location</strong>
-              <span>Shafa Badran, Refaat Shamout St., Amman</span>
-            </div>
-
-
-            <div>
-              <strong>Working Hours</strong>
-              <span>8:00 AM - 12:00 AM</span>
-            </div>
+        <div class="visit-details">
+          <div>
+            <small data-en="LOCATION" data-ar="الموقع">LOCATION</small>
+            <p>Shafa Badran, Refaat Shamout St.<br />Amman, Jordan</p>
           </div>
-
-          <div class="buttons">
-            <a
-              href="https://www.instagram.com/house.amman/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn secondary"
-            >
-              Follow us on Instagram
-            </a>
-
-            <a
-              href="https://www.google.com/maps/place/The+House+-+Coffee+House/@32.0452387,35.9238544,52m/data=!3m1!1e3!4m12!1m5!3m4!2zMzLCsDAyJzQyLjgiTiAzNcKwNTUnMjUuMyJF!8m2!3d32.0452162!4d35.923683!3m5!1s0x151b61bea4414231:0xc65a8575a7729213!8m2!3d32.0452162!4d35.923683!16s%2Fg%2F11z48hj9fl?entry=ttu"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn primary"
-            >
-            Get directions on Google Maps
-            </a>
+          <div>
+            <small data-en="OPEN DAILY" data-ar="مفتوح يومياً">OPEN DAILY</small>
+            <p>8:00 AM — 12:00 AM</p>
           </div>
         </div>
 
-        <div class="contact-map">
-          <iframe
-            src="https://www.google.com/maps?q=32.0452162,35.923683&z=17&output=embed"
-            loading="lazy"
-            allowfullscreen
-            referrerpolicy="no-referrer-when-downgrade"
-          >
-          </iframe>
+        <div class="visit-actions">
+          <a class="button button-primary" href="https://www.google.com/maps/search/?api=1&query=The+House+Coffee+Amman" target="_blank" rel="noopener">
+            <span data-en="Open in Maps" data-ar="افتح الخريطة">Open in Maps</span>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="social-link" href="https://www.instagram.com/house.amman/" target="_blank" rel="noopener" aria-label="The House Coffee on Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            @house.amman
+          </a>
         </div>
+      </div>
+
+      <div class="map-shell reveal">
+        <iframe title="The House Coffee location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=The%20House%20Coffee%20Amman&output=embed"></iframe>
+        <div class="map-label"><span></span> SHAFA BADRAN · AMMAN</div>
       </div>
     </section>
 
-    <!-- Footer -->
-    <footer>
-      <p>© 2026 The House Coffee. All Rights Reserved.</p>
-    </footer>
-  </body>
+    <section class="instagram-section">
+      <p data-en="FOLLOW THE DAILY BREW" data-ar="تابع تفاصيلنا اليومية">FOLLOW THE DAILY BREW</p>
+      <a href="https://www.instagram.com/house.amman/" target="_blank" rel="noopener">@house.amman</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#home"><span>H</span><strong>THE HOUSE COFFEE</strong></a>
+    <p data-en="Specialty coffee. Warm atmosphere. Made in Amman." data-ar="قهوة مختصة. أجواء دافئة. صُنع في عمّان.">Specialty coffee. Warm atmosphere. Made in Amman.</p>
+    <div>
+      <span>© <span id="year"></span> THE HOUSE COFFEE</span>
+      <a href="#home" data-en="BACK TO TOP ↑" data-ar="إلى الأعلى ↑">BACK TO TOP ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
 </html>
