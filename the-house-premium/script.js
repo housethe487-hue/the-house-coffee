@@ -19,6 +19,7 @@ const menuItems = [
 ];
 
 const body = document.body;
+const root = document.documentElement;
 const header = document.getElementById("site-header");
 const menuList = document.getElementById("menu-list");
 const tabs = document.querySelectorAll(".menu-tab");
@@ -28,13 +29,20 @@ const nav = document.querySelector(".site-nav");
 const videoShell = document.querySelector(".video-shell");
 const video = document.querySelector(".experience-video");
 const videoButton = document.querySelector(".video-toggle");
+const progressBar = document.querySelector(".scroll-progress span");
+const glow = document.querySelector(".cursor-glow");
+const coarsePointer = window.matchMedia("(hover: none) and (pointer: coarse)");
+const mobileViewport = window.matchMedia("(max-width: 720px)");
 let language = "en";
+let scrollTicking = false;
 
 function renderMenu(category = "all") {
   const isArabic = language === "ar";
   const filtered = category === "all" ? menuItems : menuItems.filter(item => item.category === category);
+  const delayStep = mobileViewport.matches ? 22 : 35;
+
   menuList.innerHTML = filtered.map((item, index) => `
-    <article class="menu-item-card" style="animation-delay:${index * 35}ms">
+    <article class="menu-item-card" style="animation-delay:${Math.min(index * delayStep, 220)}ms">
       <div>
         <h3>${isArabic ? item.ar : item.name}${item.badge ? `<span class="menu-badge">${item.badge}</span>` : ""}</h3>
         <p>${isArabic ? item.arDesc : item.desc}</p>
@@ -55,50 +63,70 @@ tabs.forEach(tab => {
     tab.classList.add("active");
     tab.setAttribute("aria-selected", "true");
     renderMenu(tab.dataset.category);
+    tab.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
   });
 });
 
 function updateLanguage() {
   const isArabic = language === "ar";
-  document.documentElement.lang = language;
-  document.documentElement.dir = isArabic ? "rtl" : "ltr";
+  root.lang = language;
+  root.dir = isArabic ? "rtl" : "ltr";
   body.classList.toggle("is-arabic", isArabic);
   langButton.textContent = isArabic ? "EN" : "AR";
+
   document.querySelectorAll("[data-en][data-ar]").forEach(el => {
     el.textContent = el.dataset[language];
   });
+
   const activeCategory = document.querySelector(".menu-tab.active")?.dataset.category || "all";
   renderMenu(activeCategory);
 }
 
-langButton.addEventListener("click", () => {
+langButton?.addEventListener("click", () => {
   language = language === "en" ? "ar" : "en";
   updateLanguage();
 });
 
-menuToggle.addEventListener("click", () => {
-  const open = menuToggle.classList.toggle("active");
+function setNavigation(open) {
+  menuToggle.classList.toggle("active", open);
   nav.classList.toggle("open", open);
   body.classList.toggle("nav-open", open);
   menuToggle.setAttribute("aria-expanded", String(open));
+  menuToggle.setAttribute("aria-label", open ? "Close navigation" : "Open navigation");
+}
+
+menuToggle?.addEventListener("click", () => {
+  setNavigation(!menuToggle.classList.contains("active"));
 });
 
-nav.querySelectorAll("a").forEach(link => link.addEventListener("click", () => {
-  menuToggle.classList.remove("active");
-  nav.classList.remove("open");
-  body.classList.remove("nav-open");
-  menuToggle.setAttribute("aria-expanded", "false");
-}));
+nav?.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => setNavigation(false));
+});
+
+document.addEventListener("keydown", event => {
+  if (event.key === "Escape" && body.classList.contains("nav-open")) {
+    setNavigation(false);
+    menuToggle.focus();
+  }
+});
+
+function updateScrollUI() {
+  const y = window.scrollY;
+  header.classList.toggle("scrolled", y > 24);
+  const max = root.scrollHeight - root.clientHeight;
+  progressBar.style.width = `${max > 0 ? Math.min((y / max) * 100, 100) : 0}%`;
+  scrollTicking = false;
+}
 
 function handleScroll() {
-  const y = window.scrollY;
-  header.classList.toggle("scrolled", y > 30);
-  const doc = document.documentElement;
-  const max = doc.scrollHeight - doc.clientHeight;
-  document.querySelector(".scroll-progress span").style.width = `${max ? (y / max) * 100 : 0}%`;
+  if (!scrollTicking) {
+    window.requestAnimationFrame(updateScrollUI);
+    scrollTicking = true;
+  }
 }
+
 window.addEventListener("scroll", handleScroll, { passive: true });
-handleScroll();
+updateScrollUI();
 
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
@@ -107,35 +135,61 @@ const observer = new IntersectionObserver(entries => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: .12 });
+}, {
+  threshold: mobileViewport.matches ? .07 : .12,
+  rootMargin: mobileViewport.matches ? "0px 0px -6% 0px" : "0px"
+});
+
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-videoButton.addEventListener("click", async () => {
-  try {
-    if (video.paused) {
-      video.muted = false;
-      await video.play();
-      videoShell.classList.add("playing");
-    }
-  } catch {
-    video.setAttribute("controls", "controls");
-  }
-});
-video.addEventListener("pause", () => videoShell.classList.remove("playing"));
-video.addEventListener("ended", () => videoShell.classList.remove("playing"));
-video.addEventListener("click", () => {
-  if (!video.paused) video.pause();
-});
+if (video && videoButton && videoShell) {
+  const markVideoReady = () => videoShell.classList.add("video-ready");
+  if (video.readyState >= 2) markVideoReady();
+  video.addEventListener("loadeddata", markVideoReady, { once: true });
+  video.addEventListener("canplay", markVideoReady, { once: true });
 
-const glow = document.querySelector(".cursor-glow");
-window.addEventListener("pointermove", event => {
-  glow.style.left = `${event.clientX}px`;
-  glow.style.top = `${event.clientY}px`;
-  glow.style.opacity = "1";
-}, { passive: true });
+  videoButton.addEventListener("click", async () => {
+    try {
+      if (video.paused) {
+        video.muted = false;
+        await video.play();
+        videoShell.classList.add("playing");
+      }
+    } catch {
+      video.setAttribute("controls", "controls");
+    }
+  });
+
+  video.addEventListener("pause", () => videoShell.classList.remove("playing"));
+  video.addEventListener("ended", () => videoShell.classList.remove("playing"));
+  video.addEventListener("click", () => {
+    if (!video.paused) video.pause();
+  });
+
+  const markVideoUnavailable = () => videoShell.classList.add("video-unavailable");
+  video.addEventListener("error", markVideoUnavailable);
+  video.querySelector("source")?.addEventListener("error", markVideoUnavailable);
+}
+
+if (!coarsePointer.matches && glow) {
+  window.addEventListener("pointermove", event => {
+    glow.style.left = `${event.clientX}px`;
+    glow.style.top = `${event.clientY}px`;
+    glow.style.opacity = "1";
+  }, { passive: true });
+}
+
+function setViewportHeight() {
+  const height = window.visualViewport?.height || window.innerHeight;
+  root.style.setProperty("--app-height", `${height}px`);
+}
+
+setViewportHeight();
+window.addEventListener("resize", setViewportHeight, { passive: true });
+window.visualViewport?.addEventListener("resize", setViewportHeight, { passive: true });
 
 window.addEventListener("load", () => {
-  setTimeout(() => document.querySelector(".preloader").classList.add("hide"), 450);
+  window.setTimeout(() => document.querySelector(".preloader")?.classList.add("hide"), 360);
 });
 
 document.getElementById("year").textContent = new Date().getFullYear();
