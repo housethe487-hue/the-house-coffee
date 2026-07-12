@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta name="theme-color" content="#0b0908" />
   <meta name="description" content="The House Coffee — specialty coffee, signature drinks and a warm late-night atmosphere in Shafa Badran, Amman." />
   <meta property="og:title" content="The House Coffee | Amman" />
@@ -187,7 +187,13 @@
       </div>
 
       <div class="video-shell reveal">
-        <video class="experience-video" muted loop playsinline preload="metadata" poster="assets/logo.jpg">
+        <div class="video-fallback" aria-hidden="true">
+          <span class="fallback-ring fallback-ring-one"></span>
+          <span class="fallback-ring fallback-ring-two"></span>
+          <strong>H</strong>
+          <small>THE HOUSE · AMMAN</small>
+        </div>
+        <video class="experience-video" muted loop playsinline preload="metadata" poster="assets/intro-poster.jpg">
           <source src="assets/intro.mp4" type="video/mp4" />
         </video>
         <button class="video-toggle" type="button" aria-label="Play atmosphere video">
