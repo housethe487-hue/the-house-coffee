@@ -32,6 +32,7 @@
   </script>
 </head>
 <body>
+  <a class="skip-link" href="#main-content" data-en="Skip to content" data-ar="انتقل إلى المحتوى">Skip to content</a>
   <div class="noise" aria-hidden="true"></div>
   <div class="cursor-glow" aria-hidden="true"></div>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
@@ -67,7 +68,7 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     <section class="hero" id="home">
       <div class="hero-ambient hero-ambient-one"></div>
       <div class="hero-ambient hero-ambient-two"></div>
@@ -93,7 +94,7 @@
           <i></i>
           <span><b>12:00</b> AM</span>
           <i></i>
-          <span>Open daily</span>
+          <span data-en="Open daily" data-ar="مفتوح يومياً">Open daily</span>
         </div>
       </div>
 
@@ -130,7 +131,7 @@
           <div class="steam steam-two"></div>
           <div class="steam steam-three"></div>
         </div>
-        <div class="rating-pill"><span>★</span><b>4.8</b><small>local favorite</small></div>
+        <div class="rating-pill"><span>●</span><b>8—12</b><small data-en="OPEN DAILY" data-ar="مفتوح يومياً">OPEN DAILY</small></div>
       </div>
 
       <a class="scroll-cue" href="#story" aria-label="Scroll to our story"><span></span></a>
@@ -205,25 +206,46 @@
     </section>
 
     <section class="menu-section section" id="menu">
+      <div class="menu-orb menu-orb-one" aria-hidden="true"></div>
+      <div class="menu-orb menu-orb-two" aria-hidden="true"></div>
+
       <div class="menu-intro reveal">
         <div>
-          <p class="eyebrow" data-en="OUR MENU" data-ar="قائمتنا">OUR MENU</p>
-          <h2 data-en="Choose your mood." data-ar="اختر مزاجك.">Choose your mood.</h2>
+          <p class="eyebrow" data-en="THE COMPLETE MENU" data-ar="المنيو الكامل">THE COMPLETE MENU</p>
+          <h2 data-en="Every House favorite, in one place." data-ar="كل مشروبات ذا هاوس في مكان واحد.">Every House favorite, in one place.</h2>
         </div>
-        <p data-en="Classics when you need comfort. House signatures when you want something you will remember." data-ar="كلاسيكيات عندما تريد طعماً مألوفاً، ومشروبات مميزة عندما تريد شيئاً لا تنساه.">Classics when you need comfort. House signatures when you want something you will remember.</p>
+        <div class="menu-intro-copy">
+          <p data-en="Explore all 39 drinks and additions from the current in-store menu. Filter by category or search by name." data-ar="استكشف جميع المشروبات والإضافات الـ39 من المنيو الحالي داخل الكافيه. اختر التصنيف أو ابحث بالاسم.">Explore all 39 drinks and additions from the current in-store menu. Filter by category or search by name.</p>
+          <div class="menu-stat" aria-label="39 menu items">
+            <strong>39</strong>
+            <span data-en="MENU ITEMS" data-ar="عنصراً في المنيو">MENU ITEMS</span>
+          </div>
+        </div>
       </div>
 
-      <div class="menu-tabs reveal" role="tablist" aria-label="Menu categories">
-        <button class="menu-tab active" data-category="all" role="tab" aria-selected="true" data-en="All" data-ar="الكل">All</button>
-        <button class="menu-tab" data-category="coffee" role="tab" aria-selected="false" data-en="Coffee Classics" data-ar="كلاسيكيات القهوة">Coffee Classics</button>
-        <button class="menu-tab" data-category="signature" role="tab" aria-selected="false" data-en="Latte Signatures" data-ar="لاتيه مميز">Latte Signatures</button>
-        <button class="menu-tab" data-category="frappe" role="tab" aria-selected="false" data-en="Frappe" data-ar="فرابيه">Frappe</button>
-        <button class="menu-tab" data-category="matcha" role="tab" aria-selected="false" data-en="Matcha" data-ar="ماتشا">Matcha</button>
-        <button class="menu-tab" data-category="shake" role="tab" aria-selected="false" data-en="Milkshake" data-ar="ميلك شيك">Milkshake</button>
-        <button class="menu-tab" data-category="extras" role="tab" aria-selected="false" data-en="Extras" data-ar="إضافات">Extras</button>
+      <div class="menu-toolbar reveal">
+        <div class="menu-tabs" role="tablist" aria-label="Menu categories">
+          <button class="menu-tab active" type="button" data-category="all" role="tab" aria-selected="true" data-en="All" data-ar="الكل">All</button>
+          <button class="menu-tab" type="button" data-category="coffee" role="tab" aria-selected="false" data-en="Coffee Classics" data-ar="كلاسيكيات القهوة">Coffee Classics</button>
+          <button class="menu-tab" type="button" data-category="signature" role="tab" aria-selected="false" data-en="Latte Signatures" data-ar="لاتيه مميز">Latte Signatures</button>
+          <button class="menu-tab" type="button" data-category="frappe" role="tab" aria-selected="false" data-en="Frappe" data-ar="فرابيه">Frappe</button>
+          <button class="menu-tab" type="button" data-category="matcha" role="tab" aria-selected="false" data-en="Matcha" data-ar="ماتشا">Matcha</button>
+          <button class="menu-tab" type="button" data-category="shake" role="tab" aria-selected="false" data-en="Milkshake" data-ar="ميلك شيك">Milkshake</button>
+          <button class="menu-tab" type="button" data-category="extras" role="tab" aria-selected="false" data-en="Extras" data-ar="إضافات">Extras</button>
+        </div>
+
+        <label class="menu-search" for="menu-search-input">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"></circle><path d="m16 16 4 4"></path></svg>
+          <input id="menu-search-input" type="search" autocomplete="off" spellcheck="false" data-placeholder-en="Search the menu" data-placeholder-ar="ابحث في المنيو" placeholder="Search the menu" />
+        </label>
       </div>
 
-      <div class="menu-list" id="menu-list" aria-live="polite"></div>
+      <div class="menu-results-meta reveal" aria-live="polite">
+        <span id="menu-result-count">39 items</span>
+        <button id="menu-clear" type="button" hidden data-en="Clear search" data-ar="مسح البحث">Clear search</button>
+      </div>
+
+      <div class="menu-list reveal" id="menu-list" aria-live="polite"></div>
 
       <div class="menu-note reveal">
         <span>+</span>
@@ -258,7 +280,7 @@
         </div>
 
         <div class="visit-actions">
-          <a class="button button-primary" href="https://www.google.com/maps/search/?api=1&query=The+House+Coffee+Amman" target="_blank" rel="noopener">
+          <a class="button button-primary" href="https://www.google.com/maps/search/?api=1&query=32.0452162%2C35.923683" target="_blank" rel="noopener">
             <span data-en="Open in Maps" data-ar="افتح الخريطة">Open in Maps</span>
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
           </a>
@@ -270,7 +292,7 @@
       </div>
 
       <div class="map-shell reveal">
-        <iframe title="The House Coffee location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=The%20House%20Coffee%20Amman&output=embed"></iframe>
+        <iframe title="The House Coffee location" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=32.0452162,35.923683&z=16&output=embed"></iframe>
         <div class="map-label"><span></span> SHAFA BADRAN · AMMAN</div>
       </div>
     </section>
