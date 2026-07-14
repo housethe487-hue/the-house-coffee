@@ -510,10 +510,52 @@ setViewportHeight();
 window.addEventListener("resize", setViewportHeight, { passive: true });
 window.visualViewport?.addEventListener("resize", setViewportHeight, { passive: true });
 
-window.addEventListener("load", () => {
-  window.setTimeout(() => document.querySelector(".preloader")?.classList.add("hide"), 360);
-});
+const hidePreloader = () => document.querySelector(".preloader")?.classList.add("hide");
+
+if (document.readyState === "complete") {
+  window.setTimeout(hidePreloader, 260);
+} else {
+  window.addEventListener("load", () => window.setTimeout(hidePreloader, 260), { once: true });
+}
+
+// Safety fallback: never leave the interface blocked by a slow media request.
+window.setTimeout(hidePreloader, 2200);
 
 document.getElementById("year").textContent = new Date().getFullYear();
 updateLanguage();
 selectCategory("all");
+
+/* Premium cup interaction: automatic float + pointer-responsive 3D tilt. */
+const cupStage = document.querySelector("[data-cup-stage]");
+
+if (cupStage) {
+  let cupFrame = 0;
+
+  const updateCupTilt = (clientX, clientY) => {
+    const rect = cupStage.getBoundingClientRect();
+    const normalizedX = Math.max(-1, Math.min(1, ((clientX - rect.left) / rect.width - .5) * 2));
+    const normalizedY = Math.max(-1, Math.min(1, ((clientY - rect.top) / rect.height - .5) * 2));
+
+    cancelAnimationFrame(cupFrame);
+    cupFrame = requestAnimationFrame(() => {
+      cupStage.style.setProperty("--cup-x", `${normalizedX * 10}px`);
+      cupStage.style.setProperty("--cup-y", `${normalizedY * 7}px`);
+      cupStage.style.setProperty("--cup-rx", `${normalizedY * -6.5}deg`);
+      cupStage.style.setProperty("--cup-ry", `${normalizedX * 8.5}deg`);
+    });
+  };
+
+  const resetCupTilt = () => {
+    cupStage.classList.remove("is-active");
+    cupStage.style.setProperty("--cup-x", "0px");
+    cupStage.style.setProperty("--cup-y", "0px");
+    cupStage.style.setProperty("--cup-rx", "0deg");
+    cupStage.style.setProperty("--cup-ry", "0deg");
+  };
+
+  if (!coarsePointer.matches) {
+    cupStage.addEventListener("pointerenter", () => cupStage.classList.add("is-active"));
+    cupStage.addEventListener("pointermove", event => updateCupTilt(event.clientX, event.clientY), { passive: true });
+    cupStage.addEventListener("pointerleave", resetCupTilt);
+  }
+}
