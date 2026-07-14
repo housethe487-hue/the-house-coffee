@@ -545,7 +545,6 @@ if (cupStage) {
     });
   };
 
-  
   const resetCupTilt = () => {
     cupStage.classList.remove("is-active");
     cupStage.style.setProperty("--cup-x", "0px");
