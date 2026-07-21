@@ -113,22 +113,20 @@ body.is-ar .essential-card p{font-size:.9rem}
   .essential-symbol,.essential-clock,.essential-pin{transform:scale(.82);transform-origin:left center}
   body.is-ar .essential-symbol,body.is-ar .essential-clock,body.is-ar .essential-pin{transform-origin:right center}
 }
-/* ==================================================
-   MOBILE + TABLET BOTTOM NAVIGATION
-================================================== */
+/* =========================================================
+   STUDY HOUSE — MOBILE & TABLET BOTTOM NAVIGATION
+   ========================================================= */
 
-.mobile-bottom-nav {
+.study-bottom-nav {
   display: none;
 }
 
-/* يظهر فقط على التابلت والآيباد والتلفون */
-@media (max-width: 1024px) {
-
+@media (max-width: 1100px) {
   body {
-    padding-bottom: calc(106px + env(safe-area-inset-bottom));
+    padding-bottom: calc(104px + env(safe-area-inset-bottom));
   }
 
-  .mobile-bottom-nav {
+  .study-bottom-nav {
     position: fixed;
     right: 0;
     bottom: 0;
@@ -142,58 +140,52 @@ body.is-ar .essential-card p{font-size:.9rem}
 
     width: 100%;
     min-height: 96px;
-
     padding:
       10px
       max(12px, env(safe-area-inset-right))
       calc(10px + env(safe-area-inset-bottom))
       max(12px, env(safe-area-inset-left));
 
+    direction: ltr;
     background: rgba(31, 30, 29, 0.97);
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 -12px 34px rgba(0, 0, 0, 0.28);
 
-    border-top: 1px solid rgba(255, 255, 255, 0.07);
-
-    box-shadow:
-      0 -12px 35px rgba(0, 0, 0, 0.25),
-      0 -1px 0 rgba(255, 255, 255, 0.03);
-
-    backdrop-filter: blur(22px);
     -webkit-backdrop-filter: blur(22px);
+    backdrop-filter: blur(22px);
   }
 
-  .bottom-nav-item {
+  .study-bottom-nav__item {
     display: flex;
+    min-width: 0;
+    min-height: 76px;
+    padding: 10px 8px;
+
     flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 8px;
 
-    width: 100%;
-    min-width: 0;
-    min-height: 76px;
-
-    padding: 10px 8px;
-
     color: rgba(255, 255, 255, 0.56);
     background: transparent;
-
     border-radius: 27px;
 
-    font-family: "Tajawal", Arial, sans-serif;
+    font-family: "Tajawal", "DM Sans", Arial, sans-serif;
     font-size: 13px;
     font-weight: 500;
     line-height: 1;
-
+    text-align: center;
     text-decoration: none;
 
+    -webkit-tap-highlight-color: transparent;
     transition:
-      color 0.25s ease,
-      background-color 0.25s ease,
-      transform 0.2s ease,
-      box-shadow 0.25s ease;
+      color 220ms ease,
+      background-color 220ms ease,
+      box-shadow 220ms ease,
+      transform 160ms ease;
   }
 
-  .bottom-nav-item svg {
+  .study-bottom-nav__item svg {
     width: 24px;
     height: 24px;
 
@@ -206,100 +198,76 @@ body.is-ar .essential-card p{font-size:.9rem}
     pointer-events: none;
   }
 
-  .bottom-nav-item span {
+  .study-bottom-nav__item span {
     display: block;
+    overflow: hidden;
+    max-width: 100%;
+
     white-space: nowrap;
+    text-overflow: ellipsis;
     pointer-events: none;
   }
 
-  .bottom-nav-item:active {
+  .study-bottom-nav__item:active {
     transform: scale(0.97);
   }
 
-  .bottom-nav-item:focus-visible {
+  .study-bottom-nav__item:focus-visible {
     outline: 2px solid #ffffff;
     outline-offset: -4px;
   }
 
-  /* الرئيسية مفعّلة بشكل افتراضي */
-  .nav-home {
+  /* Home is active by default. */
+  body:not(:has(#menu:target)):not(:has(#visit:target))
+    .study-bottom-nav__home,
+  body:has(#home:target)
+    .study-bottom-nav__home,
+  body:has(#menu:target)
+    .study-bottom-nav__menu,
+  body:has(#visit:target)
+    .study-bottom-nav__location {
     color: #ffffff;
-    background: #ff5a47;
-
+    background: var(--accent, #e8733f);
     box-shadow:
-      0 10px 26px rgba(255, 90, 71, 0.24),
+      0 10px 26px rgba(var(--accent-rgb, 232, 115, 63), 0.26),
       inset 0 1px 0 rgba(255, 255, 255, 0.14);
   }
 
-  /* إزالة التفعيل عن الرئيسية عند فتح المنيو أو الموقع */
-  body:has(#menu:target) .nav-home,
-  body:has(#visit:target) .nav-home {
+  /* Prevent Home from staying active when another destination is targeted. */
+  body:has(#menu:target) .study-bottom-nav__home,
+  body:has(#visit:target) .study-bottom-nav__home {
     color: rgba(255, 255, 255, 0.56);
     background: transparent;
     box-shadow: none;
   }
-
-  /* تفعيل المنيو */
-  body:has(#menu:target) .nav-menu {
-    color: #ffffff;
-    background: #ff5a47;
-
-    box-shadow:
-      0 10px 26px rgba(255, 90, 71, 0.24),
-      inset 0 1px 0 rgba(255, 255, 255, 0.14);
-  }
-
-  /* تفعيل الموقع */
-  body:has(#visit:target) .nav-location {
-    color: #ffffff;
-    background: #ff5a47;
-
-    box-shadow:
-      0 10px 26px rgba(255, 90, 71, 0.24),
-      inset 0 1px 0 rgba(255, 255, 255, 0.14);
-  }
-
-  /* تفعيل الرئيسية عند الضغط عليها */
-  body:has(#home:target) .nav-home {
-    color: #ffffff;
-    background: #ff5a47;
-
-    box-shadow:
-      0 10px 26px rgba(255, 90, 71, 0.24),
-      inset 0 1px 0 rgba(255, 255, 255, 0.14);
-  }
 }
 
-/* تلفونات صغيرة */
 @media (max-width: 390px) {
-
   body {
     padding-bottom: calc(94px + env(safe-area-inset-bottom));
   }
 
-  .mobile-bottom-nav {
+  .study-bottom-nav {
     min-height: 88px;
     gap: 5px;
     padding-top: 8px;
   }
 
-  .bottom-nav-item {
+  .study-bottom-nav__item {
     min-height: 68px;
+    gap: 7px;
     border-radius: 23px;
     font-size: 12px;
-    gap: 7px;
   }
 
-  .bottom-nav-item svg {
+  .study-bottom-nav__item svg {
     width: 22px;
     height: 22px;
   }
 }
 
-/* إخفاؤه على اللابتوب والشاشات الكبيرة */
-@media (min-width: 1025px) {
-
-  .mobile-bottom-nav {
+@media (min-width: 1101px) {
+  .study-bottom-nav {
     display: none !important;
   }
 }
