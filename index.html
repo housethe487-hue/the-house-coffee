@@ -16,6 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Italiana&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="bottom-nav.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"The House Coffee","address":{"@type":"PostalAddress","streetAddress":"Refaat Shamout St., Shafa Badran","addressLocality":"Amman","addressCountry":"JO"},"openingHours":"Mo-Su 08:00-00:00","sameAs":["https://www.instagram.com/house.amman/"]}</script>
 </head>
 <body>
@@ -192,6 +193,35 @@
     <div class="footer-top"><a href="#home" class="footer-brand"><img src="assets/house-mark.svg" alt=""><span>THE HOUSE COFFEE</span></a><p data-en="Good coffee. Good people. Your favorite hour." data-ar="قهوة جيدة، ناس جميلون، وساعتك المفضلة.">Good coffee. Good people. Your favorite hour.</p></div>
     <div class="footer-bottom"><span>© <b id="year"></b> THE HOUSE COFFEE</span><div><a href="https://www.instagram.com/house.amman/" target="_blank" rel="noopener">INSTAGRAM</a><a href="#home" data-en="BACK TO TOP ↑" data-ar="إلى الأعلى ↑">BACK TO TOP ↑</a></div></div>
   </footer>
+
+
+  <!-- Mobile and tablet bottom navigation -->
+  <nav class="study-bottom-nav" aria-label="Quick navigation">
+    <a class="study-bottom-nav__item study-bottom-nav__location" href="#visit" aria-label="Location">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M20 10c0 5.5-8 11-8 11S4 15.5 4 10a8 8 0 1 1 16 0Z"></path>
+        <circle cx="12" cy="10" r="2.5"></circle>
+      </svg>
+      <span data-en="Location" data-ar="الموقع">Location</span>
+    </a>
+
+    <a class="study-bottom-nav__item study-bottom-nav__menu" href="#menu" aria-label="Menu">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <rect x="6" y="3" width="12" height="18" rx="1"></rect>
+        <path d="M9 7h6M9 11h6M9 15h4"></path>
+      </svg>
+      <span data-en="Menu" data-ar="المنيو">Menu</span>
+    </a>
+
+    <a class="study-bottom-nav__item study-bottom-nav__home" href="#home" aria-label="Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path d="M3 11 12 3l9 8"></path>
+        <path d="M5 10v11h14V10"></path>
+        <path d="M9 21v-6h6v6"></path>
+      </svg>
+      <span data-en="Home" data-ar="الرئيسية">Home</span>
+    </a>
+  </nav>
 
   <script src="script.js"></script>
 </body>
