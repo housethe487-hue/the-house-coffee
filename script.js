@@ -1086,3 +1086,63 @@ if (yearElement) {
 
 setLanguage(language);
 applyJordanMood();
+/* =========================================
+   BOTTOM NAVIGATION
+========================================= */
+
+(() => {
+  const bottomNav = document.querySelector(".mobile-bottom-nav");
+
+  if (!bottomNav) return;
+
+  const navItems = bottomNav.querySelectorAll(".bottom-nav-item");
+
+  const sections = [
+    document.getElementById("home"),
+    document.getElementById("menu"),
+    document.getElementById("visit")
+  ].filter(Boolean);
+
+  function setActiveSection(sectionId) {
+    navItems.forEach((item) => {
+      const isActive = item.dataset.section === sectionId;
+
+      item.classList.toggle("active", isActive);
+
+      if (isActive) {
+        item.setAttribute("aria-current", "page");
+      } else {
+        item.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  function updateActiveSection() {
+    const scrollPosition =
+      window.scrollY + window.innerHeight * 0.45;
+
+    let currentSection = "home";
+
+    sections.forEach((section) => {
+      if (scrollPosition >= section.offsetTop) {
+        currentSection = section.id;
+      }
+    });
+
+    setActiveSection(currentSection);
+  }
+
+  navItems.forEach((item) => {
+    item.addEventListener("click", () => {
+      setActiveSection(item.dataset.section);
+    });
+  });
+
+  window.addEventListener("scroll", updateActiveSection, {
+    passive: true
+  });
+
+  window.addEventListener("resize", updateActiveSection);
+
+  updateActiveSection();
+})();
